@@ -1,1 +1,0 @@
-export { ValidationClass } from './validationClass.pipe';
