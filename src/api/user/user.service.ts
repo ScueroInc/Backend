@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { District } from 'src/models/entities';
+import { Repository } from 'typeorm';
 @Injectable()
 export class UserService {
 
-  constructor() {
+  constructor(
+    @InjectRepository(District)
+    private districtRepository: Repository<District>,
+  ) {
   }
 
-  async getUserInformation() {
-    return "User information";
+  async getDangerousHours() {
+    return await this.districtRepository.find();
   }
 }

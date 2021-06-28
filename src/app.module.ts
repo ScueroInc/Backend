@@ -4,7 +4,9 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './api/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { City, Country, Person, User } from './models/entities';
+import { City, Comment, Country, District, GeneralData, Incidence, Person, User } from './models/entities';
+import { IncidenceModule } from './api/incidence/incidence.module';
+import { MailModule } from './mail/mail.module';
 import * as cors from 'cors';
 import * as morgan from 'morgan';
 @Module({
@@ -18,9 +20,11 @@ import * as morgan from 'morgan';
       username: 'root',
       password: 'root',
       database: 'tdp_db',
-      entities: [Country, City, Person, User],
+      entities: [Country, City, Person, User, GeneralData, Comment, Incidence, District],
       synchronize: true,
     }),
+    IncidenceModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

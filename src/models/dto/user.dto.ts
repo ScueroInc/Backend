@@ -10,6 +10,17 @@ export class LoginUserDto {
   @IsNotEmpty() @IsString() readonly password: string;
 }
 
+export class ChangePasswordDto {
+  @ApiProperty()
+  @IsNotEmpty() @IsString() readonly oldPassword: string;
+
+  @ApiProperty()
+  @IsNotEmpty() @IsString() readonly newPassword: string;
+
+  @ApiProperty()
+  @IsNotEmpty() @IsString() readonly repeatNewPassword: string;
+}
+
 export class RegisterUserDto {
   @ApiProperty()
   @IsEmail() @IsNotEmpty() email?: string;

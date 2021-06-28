@@ -19,6 +19,7 @@ async function bootstrap() {
     .setDescription('Api for Authentication Controller')
     .setVersion('1.0')
     .addTag('auth')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
